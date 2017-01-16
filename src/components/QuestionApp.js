@@ -36,8 +36,8 @@ export default class AppComponent extends React.Component {
 	}
 
 	onVote(key, newCount) {
+		console.log(this.state);
 		let questions = this.state.questions;
-
 		//返回被点击的item的index
 		let index = questions.findIndex(function(element){
 			return element.id == key
@@ -57,7 +57,7 @@ export default class AppComponent extends React.Component {
   //quesions排序函数
 	sortQuestion(questions) {
 		questions.sort(function(a,b){
-			return a.voteCount - b.voteCount
+			return b.voteCount - a.voteCount
 		});
 		return questions;
 	}
@@ -67,6 +67,7 @@ export default class AppComponent extends React.Component {
 		this.setState({
 			formDisplay: !this.state.formDisplay
 		});
+		console.log(this.state);
 	}
 
   render() {
@@ -78,7 +79,7 @@ export default class AppComponent extends React.Component {
         </div>
         <div className = "main container">
         	<QuestionForm displayButton = {this.displayButton.bind(this)} formDisplay = {this.state.formDisplay}/>
-        	<QuestionList questions = {this.state.questions} onVote = {this.onVote.bind(this)}/>
+        	<QuestionList questions = {this.state.questions} onVote = {this.onVote.bind(this)} />
         </div>
       </div>
     );

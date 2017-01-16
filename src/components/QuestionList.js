@@ -9,6 +9,7 @@ export default class QuestionList extends React.Component {
 				return (
 					<QuestionItem 
 						key = {q.id}
+						questionKey = {q.id}
 						title = {q.title}
 						description = {q.description}
 						voteCount = {q.voteCount}
