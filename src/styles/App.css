@@ -19,3 +19,21 @@ body {
   border-width: 1px 0;
   background: #666;
 }
+.container {
+  max-width: 900px;
+}
+.header {
+  height: 200px;
+  position: relative;
+  text-align: center;
+  padding-top: 50px;
+}
+.header h4{
+  font-size: 50px;
+}
+.header .btn {
+  position: absolute;
+  left: 15px;
+  top: 120px;
+
+}

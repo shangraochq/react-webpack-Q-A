@@ -23,7 +23,7 @@ export default class QuestionItem extends React.Component{
 						<span className = "glyphicon glyphicon-chevron-up"></span>
 					</button>
 					<button className="btn btn-default" onClick={this.voteDown.bind(this)}>
-						<span className = "glyphicon glyphicon-chevron-up"></span>
+						<span className = "glyphicon glyphicon-chevron-down"></span>
 					</button>
 				</div>
 				<div className = "vote-main">

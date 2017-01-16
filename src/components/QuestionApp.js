@@ -31,8 +31,12 @@ export default class AppComponent extends React.Component {
 		super(props);
 		this.state = {questions: questions,
 									formDisplay: false,
-								 };
-		
+			};
+
+		//解决事件监听callback中的this指向问题
+		this.displayButton = this.displayButton.bind(this);
+		this.onVote = this.onVote.bind(this);
+		this.addNewQuestion = this.addNewQuestion.bind(this);
 	}
 
 	onVote(key, newCount) {
@@ -63,23 +67,35 @@ export default class AppComponent extends React.Component {
 	}
 
 	//questionForm显示与消失控制函数
-	displayButton() {
+	displayButton(e) {
+		e.preventDefault();
 		this.setState({
 			formDisplay: !this.state.formDisplay
 		});
 		console.log(this.state);
 	}
 
+	//添加新问题
+	addNewQuestion(q) {
+		q.id = this.state.questions.length + 2;
+		q.voteCount = 0;
+		this.state.questions.push(q);
+		this.setState({
+			questions: this.state.questions,
+		})
+
+	}
+
   render() {
     return (
       <div>
-        <div className = "container">
+        <div className = "container header">
         	<h4>React问答</h4>
-        	<ShowAddButton displayButton = {this.displayButton.bind(this)}/>{/*bind(this)解决闭包*/}
+        	<ShowAddButton  displayButton = {this.displayButton}/>{/*bind(this)解决闭包*/}
         </div>
         <div className = "main container">
-        	<QuestionForm displayButton = {this.displayButton.bind(this)} formDisplay = {this.state.formDisplay}/>
-        	<QuestionList questions = {this.state.questions} onVote = {this.onVote.bind(this)} />
+        	<QuestionForm displayButton = {this.displayButton} formDisplay = {this.state.formDisplay} addNewQuestion = {this.addNewQuestion}/>
+        	<QuestionList questions = {this.state.questions} onVote = {this.onVote} />
         </div>
       </div>
     );
