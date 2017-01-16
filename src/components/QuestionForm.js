@@ -4,11 +4,17 @@ export default class QuestionForm extends React.Component {
 
 	onsubmit(e) {
 		e.preventDefault();
+		let value = this.refs.title.value;
+		if (value === '') {
+			alert('请输入一些内容');
+			return;
+		}
 		let addQ = {};
-		addQ.title = this.refs.title.value;
+		addQ.title = value;
 		addQ.description = this.refs.description.value;
 		this.props.addNewQuestion(addQ);
-		console.log(1);
+		this.refs.title.value = '';
+		this.refs.description.value = '';
 	}
 
 	render() {
@@ -17,7 +23,7 @@ export default class QuestionForm extends React.Component {
 			}
 		return (
 			
-			<div>
+			<div className = "questionForm">
 				<form role="form" style = {style}>
 				  <div className="form-group">
 				    <label htmlFor="quetitle">问题</label>
@@ -32,7 +38,7 @@ export default class QuestionForm extends React.Component {
 				  <button type="submit" className="btn btn-success" onClick = {this.onsubmit.bind(this)}>确定</button>
 				</form>
 
-			</div>	
+			</div>
 			)
 	}
 }

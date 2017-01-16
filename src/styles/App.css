@@ -21,6 +21,8 @@ body {
 }
 .container {
   max-width: 900px;
+  
+
 }
 .header {
   height: 200px;
@@ -33,7 +35,51 @@ body {
 }
 .header .btn {
   position: absolute;
-  left: 15px;
-  top: 120px;
+  left: -55px;
+  top: 140px;
+}
+.questionForm {
+  position: relative;
+  padding-bottom: 30px;
+}
+.questionForm .btn-info{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.questionForm .btn-success{
+  position: absolute;
+  right: 70px;
+  bottom: 0;
+}
+.vote{
+  position: relative;
+  padding-bottom: 40px;
+  /*解决没有添加主题内容造成上下两个votecount重叠的bug*/
+  min-height: 100px;
+}
+.vote span {
+  display: block;
+}
+.votePoint {
+  position: absolute;
+  left: -70px;
+  top: 0;
+}
+.vote .up {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 50px;
+  width: 40px;
+}
+.vote .down{
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.vote .btn-danger {
+  position: absolute;
+  right: 0;
 
 }
