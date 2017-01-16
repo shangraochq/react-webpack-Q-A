@@ -30,14 +30,15 @@ export default class AppComponent extends React.Component {
 		];
 		super(props);
 		this.state = {questions: questions,
-									formDisplay: false,
-								 }		
+									formDisplay: true,
+								 };
+		
 	}
 
 	displayButton() {
-		this.setstate({
+		this.setState({
 			formDisplay: !this.state.formDisplay
-		})
+		});
 	}
 
   render() {
@@ -45,10 +46,10 @@ export default class AppComponent extends React.Component {
       <div>
         <div className = "container">
         	<h4>React问答</h4>
-        	<ShowAddButton displayButton = {this.displayButton}/>
+        	<ShowAddButton displayButton = {this.displayButton.bind(this)}/>
         </div>
         <div className = "main container">
-        	<QuestionForm />
+        	<QuestionForm displayButton = {this.displayButton.bind(this)} formDisplay = {this.state.formDisplay}/>
         	<QuestionList />
         </div>
       </div>
