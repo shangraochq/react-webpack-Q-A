@@ -49,6 +49,7 @@ export default class AppComponent extends React.Component {
 	onVote(key, newCount) {
 		
 		let questions = this.state.questions;
+
 		//返回被点击的item的index
 		let index = questions.findIndex(function(element){
 			return element.id == key
@@ -75,7 +76,10 @@ export default class AppComponent extends React.Component {
 
 	//questionForm显示与消失控制函数
 	displayButton(e) {
+
+		//阻止默认时间，防止刷新页面
 		e.preventDefault();
+
 		this.setState({
 			formDisplay: !this.state.formDisplay
 		});
@@ -83,6 +87,8 @@ export default class AppComponent extends React.Component {
 
 	//添加新问题
 	addNewQuestion(q) {
+
+		//新增的question的id取原本最后一个question的id加1
 		q.id = this.state.questions[this.state.questions.length-1].id + 1;
 		q.voteCount = 0;
 		this.state.questions.push(q);
@@ -102,6 +108,7 @@ export default class AppComponent extends React.Component {
 			return element.id == key;
 		});
 
+		//删除选中问题
 		questions.splice(index, 1);
 		this.setState({
 			questions: questions

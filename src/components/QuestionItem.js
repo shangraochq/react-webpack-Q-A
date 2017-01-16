@@ -3,7 +3,7 @@ import React from 'react';
 export default class QuestionItem extends React.Component{
 
 	voteUp() {
-
+		//调用父组件的函数
 		this.props.onVote(this.props.questionKey, this.props.voteCount + 1);
 	}
 
@@ -19,6 +19,8 @@ export default class QuestionItem extends React.Component{
 		if (!choose) {
 			return;
 		}
+
+		//取到待删除函数的questionKEY，即id
 		let questionKey = this.props.questionKey;
 		this.props.deleteQuestion(questionKey);
 	}

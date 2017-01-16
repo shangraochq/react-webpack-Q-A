@@ -5,13 +5,18 @@ export default class QuestionForm extends React.Component {
 	onsubmit(e) {
 		e.preventDefault();
 		let value = this.refs.title.value;
+
+		//如果没有输入标题，则不执行任何
 		if (value === '') {
 			alert('请输入一些内容');
 			return;
 		}
+
 		let addQ = {};
 		addQ.title = value;
 		addQ.description = this.refs.description.value;
+
+		//调用父组件的函数
 		this.props.addNewQuestion(addQ);
 		this.refs.title.value = '';
 		this.refs.description.value = '';

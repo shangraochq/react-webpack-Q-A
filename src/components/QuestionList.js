@@ -6,6 +6,8 @@ export default class QuestionList extends React.Component {
 		let onVote = this.props.onVote,
 			deleteQuestion = this.props.deleteQuestion,
 			questions = this.props.questions,
+
+			//遍历questions数组，返回多个QuestionItem,并将相应数据传到QuestionItem的属性中去
 			questionsArray = questions.map(function(q){
 				return (
 					<QuestionItem
