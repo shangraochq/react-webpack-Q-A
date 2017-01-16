@@ -3,11 +3,15 @@ import React from 'react';
 export default class QuestionItem extends React.Component{
 
 	voteUp() {
-		
+
+		this.props.onVote(this.props.key, this.props.voteCount + 1);
 	}
 
 	voteDown() {
-		
+		if (this.props.voteCount == 0) {
+			return;
+		}
+		this.props.onVote(this.props.key, this.props.voteCount - 1);
 	}
 
 	render() {

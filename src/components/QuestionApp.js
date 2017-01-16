@@ -30,11 +30,39 @@ export default class AppComponent extends React.Component {
 		];
 		super(props);
 		this.state = {questions: questions,
-									formDisplay: true,
+									formDisplay: false,
 								 };
 		
 	}
 
+	onVote(key, newCount) {
+		let questions = this.state.questions;
+
+		//返回被点击的item的index
+		let index = questions.findIndex(function(element){
+			return element.id == key
+		});
+
+		questions[index].voteCount = newCount;
+
+		//根据votecount对questions重新排序
+		questions = this.sortQuestion(questions);
+
+		//更新状态
+		this.setState({
+			questions: questions,
+		});
+	}
+
+  //quesions排序函数
+	sortQuestion(questions) {
+		questions.sort(function(a,b){
+			return a.voteCount - b.voteCount
+		});
+		return questions;
+	}
+
+	//questionForm显示与消失控制函数
 	displayButton() {
 		this.setState({
 			formDisplay: !this.state.formDisplay
@@ -46,11 +74,11 @@ export default class AppComponent extends React.Component {
       <div>
         <div className = "container">
         	<h4>React问答</h4>
-        	<ShowAddButton displayButton = {this.displayButton.bind(this)}/>
+        	<ShowAddButton displayButton = {this.displayButton.bind(this)}/>{/*bind(this)解决闭包*/}
         </div>
         <div className = "main container">
         	<QuestionForm displayButton = {this.displayButton.bind(this)} formDisplay = {this.state.formDisplay}/>
-        	<QuestionList />
+        	<QuestionList questions = {this.state.questions} onVote = {this.onVote.bind(this)}/>
         </div>
       </div>
     );
