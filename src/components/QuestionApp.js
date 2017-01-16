@@ -4,10 +4,10 @@ require('styles/App.css');
 import React from 'react';
 import ShowAddButton from './ShowAddButton';
 import QuestionForm from './QuestionForm';
-import QuetionList from './QuetionList';
+import QuestionList from './QuestionList';
 
-class AppComponent extends React.Component {
-	constructor(proos){
+export default class AppComponent extends React.Component {
+	constructor(props){
 		var questions = [
 			{
 				id:1,
@@ -45,11 +45,11 @@ class AppComponent extends React.Component {
       <div>
         <div className = "container">
         	<h4>React问答</h4>
-        	<ShowAddButton />
+        	<ShowAddButton displayButton = {this.displayButton}/>
         </div>
         <div className = "main container">
         	<QuestionForm />
-        	<QuetionList />
+        	<QuestionList />
         </div>
       </div>
     );
@@ -57,4 +57,3 @@ class AppComponent extends React.Component {
 }
 
 
-export default AppComponent;
