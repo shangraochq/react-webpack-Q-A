@@ -7,7 +7,7 @@
 react  + ES6 + webpack  + bootstrap  
 
 ## 效果图
-![Alt text](./QQ截图20170116205941.png)
+![enter image description here](https://shangraochq.github.io/react-webpack-Q-A/src/images/review.png)
 
 
 ##项目目的
