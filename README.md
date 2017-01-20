@@ -10,6 +10,7 @@ react  + ES6 + webpack  + bootstrap
 ![enter image description here](https://shangraochq.github.io/react-webpack-Q-A/src/images/review.png)
 
 
+
 ##项目目的
 这个练手小项目包括项目的整个开发流程, 主要用于入门react基本用法，bootstrap基本用法,以及项目的整个开发流程
 

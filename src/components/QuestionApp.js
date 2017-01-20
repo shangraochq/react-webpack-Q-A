@@ -36,7 +36,7 @@ export default class AppComponent extends React.Component {
 		];
 		super(props);
 		this.state = {questions: questions,
-									formDisplay: false
+					formDisplay: false
 			};
 
 		//解决事件监听callback中的this指向问题
