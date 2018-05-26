@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class QuestionItem extends React.Component{
+export default class QuestionItem extends React.Component {
 
 	voteUp() {
 		//调用父组件的函数
@@ -8,9 +8,9 @@ export default class QuestionItem extends React.Component{
 	}
 
 	voteDown() {
-		if (this.props.voteCount == 0) {
-			return;
-		}
+		// if (this.props.voteCount == 0) {
+		// 	return;
+		// }
 		this.props.onVote(this.props.questionKey, this.props.voteCount - 1);
 	}
 
@@ -43,6 +43,6 @@ export default class QuestionItem extends React.Component{
 					<button type="button" className="btn btn-danger" onClick = {this.deleteQ.bind(this)}>删除问题</button>
 				</div>
 			</div>
-			)
+		)
 	}
 }

@@ -27,7 +27,6 @@ export default class QuestionForm extends React.Component {
 				display : this.props.formDisplay ? 'block' : 'none'
 			}
 		return (
-			
 			<div className = "questionForm">
 				<form role="form" style = {style}>
 				  <div className="form-group">
@@ -38,7 +37,6 @@ export default class QuestionForm extends React.Component {
 				    <label htmlFor="quedescription"></label>
 				    <textarea ref = 'description' className="form-control" id="quedescription" placeholder="请输入问题" />
 				  </div>
-				  
 				  <button className="btn btn-info" onClick = {this.props.displayButton}>取消</button>
 				  <button type="submit" className="btn btn-success" onClick = {this.onsubmit.bind(this)}>确定</button>
 				</form>
